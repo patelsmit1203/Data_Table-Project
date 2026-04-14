@@ -1,0 +1,90 @@
+.container {
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.search-input, .filter-select, .sort-btn {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.sort-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sort-btn:hover {
+  background-color: #0056b3;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.product-table th {
+  background-color: #f8f9fa;
+  text-align: left;
+  padding: 15px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.product-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.badge {
+  background: #e9ecef;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.price-cell {
+  font-weight: bold;
+  color: #28a745;
+}
+
+tr:hover {
+  background-color: #fcfcfc;
+}
