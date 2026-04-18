@@ -22,8 +22,8 @@ const ProductTable = () => {
   }, []);
 
   const processedData = products.filter((item) => {
-    const title = item?.title || '';
-    const cat = item?.category || '';
+    const title = item?.title 
+    const cat = item?.category
 
     return (
       title.toLowerCase().includes(search.toLowerCase()) &&
