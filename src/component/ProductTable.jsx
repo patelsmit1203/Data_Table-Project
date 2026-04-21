@@ -6,6 +6,7 @@ const ProductTable = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
+  const [sortOrder, setSortOrder] = useState('asc'); // NEW
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,15 +22,23 @@ const ProductTable = () => {
     fetchData();
   }, []);
 
-  const processedData = products.filter((item) => {
-    const title = item?.title 
-    const cat = item?.category
+  const processedData = products
+    .filter((item) => {
+      const title = item?.title;
+      const cat = item?.category;
 
-    return (
-      title.toLowerCase().includes(search.toLowerCase()) &&
-      (category === 'All' || cat === category)
-    );
-  });
+      return (
+        title.toLowerCase().includes(search.toLowerCase()) &&
+        (category === 'All' || cat === category)
+      );
+    })
+    .sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.price - b.price; 
+      } else {
+        return b.price - a.price; 
+      }
+    });
 
   return (
     <div className="container">
@@ -52,6 +61,15 @@ const ProductTable = () => {
           <option value="jewelery">Jewelery</option>
           <option value="men's clothing">Men</option>
           <option value="women's clothing">Women</option>
+        </select>
+
+       
+        <select
+          className="filter-select"
+          onChange={(e) => setSortOrder(e.target.value)}
+        >
+          <option value="asc">Price: Low → High</option>
+          <option value="desc">Price: High → Low</option>
         </select>
       </div>
 
